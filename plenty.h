@@ -8,6 +8,7 @@ class Plenty
 private:
 	int* array;
 	int size;
+	friend ostream& operator << (ostream& output, Plenty& plenty);
 public:
 	// конструктор по умолчанию
 	Plenty() {
@@ -25,21 +26,25 @@ public:
 		this->size = size;
 	}
 	// конструктор копирования
-	Plenty(const Plenty &plenty) {
+	Plenty(const Plenty& plenty) {
+		this->array = new int [plenty.size];
 		for (size_t i = 0; i < plenty.size; i++)
 		{
 			this->array[i] = plenty.array[i];
 		}
-		this->size = size;
+		this->size = plenty.size;
 	}
+	// деструктор
 	~Plenty() {
 		if (this->array) delete[]this->array;
 	}
-	void addEl(int elem);
-	//const Plenty& Plenty::operator+(int elem);
+	Plenty operator+(int elem);
 	string getEl();
 	bool chkEl(int elem);
-	
+	Plenty operator+=(Plenty& plenty1);
+
 
 };
+
+
 

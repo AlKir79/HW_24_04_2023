@@ -8,14 +8,25 @@ using namespace std;
 int main()
 {
 	int size = 4;
+	int size1 = 5;
 	int* array = new int[size]{ 1,2,3,4 };
-	Plenty plenty1(array, 4);
-	cout << plenty1.getEl();
+	int* array1 = new int[size1] {5, 6, 7, 8, 9};
+	Plenty plenty(array, 4);
+	Plenty plenty1(array1, 5);
+//	cout << plenty.getEl();
+	cout << plenty;
 	cout << endl;
-	plenty1.addEl(7);
-	cout << plenty1.getEl();
+	plenty + 7;
+	plenty + 1;
+	plenty + 2;
+//	cout << plenty.getEl();
+	cout << plenty;
 	cout << endl;
-	if (plenty1.chkEl(3)) cout << "true" << endl;
-	else cout << "false";
+	Plenty plenty3 = plenty += plenty1;
+//	Plenty plenty3 = plenty.addPlenty(plenty1,size1);
+//	cout << plenty3.getEl();
+	cout << plenty3;
+
+
 }
 
